@@ -1,14 +1,48 @@
-"""
-Create a Python file named lab_7-2.py
+def multiply_numbers(num1, num2):
+    """
+    This function takes two numbers as input and returns their product.
+    """
+    result = num1 * num2
+    return result
 
-*** You must write a comment for every chunk of code you write from now on along with your author tag***
+def add_numbers(num1, num2):
+    """
+    This function takes two numbers as input and returns their sum.
+    """
+    result = num1 + num2
+    return result
 
-Create a function called find_sum()
-Add the parameters num1 and num2 to the definition of find_sum()
-Add statements to the function that adds the arguments passed to num1 and num2 and stores them in a new variable num_sum
-Finish the function with a statement that returns num_sum
-Create a statement that calls the function to find the sum of 111 and 222. Set it equal to the variable my_sum
-Add another print statement after the previous statement that prints my_sum
-What happens when you run the program?
+def perform_operations(num1, num2):
+    """
+    This function performs multiplication and addition using the results
+    of the multiply_numbers and add_numbers functions.
+    """
+    # Call the multiply_numbers function
+    product = multiply_numbers(num1, num2)
 
-"""
+    # Call the add_numbers function
+    summation = add_numbers(num1, num2)
+
+    # Return the results
+    return product, summation
+
+# Test Cases for perform_operations function
+def test_perform_operations():
+    # Test Case 1: Positive numbers
+    result = perform_operations(3, 4)
+    assert result == (12, 7), f"Test Case 1 failed: expected (12, 7), got {result}"
+
+    # Test Case 2: Negative numbers
+    result = perform_operations(-2, 6)
+    assert result == (-12, 4), f"Test Case 2 failed: expected (-12, 4), got {result}"
+
+    # Test Case 3: Zero and positive number
+    result = perform_operations(0, 9)
+    assert result == (0, 9), f"Test Case 3 failed: expected (0, 9), got {result}"
+
+    # Test Case 4: Zero and negative number
+    result = perform_operations(0, -5)
+    assert result == (0, -5), f"Test Case 4 failed: expected (0, -5), got {result}"
+
+# Run the test cases
+test_perform_operations()
